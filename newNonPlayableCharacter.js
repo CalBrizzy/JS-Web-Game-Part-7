@@ -22,10 +22,6 @@ function newNonPlayableCharacter(x, y) {
     }
 
     setInterval(moveCharacter, 1)
-
-    async function walking () {
-        walkEast ()
-    }
     
     async function walkEast() {
         direction = 'east'
