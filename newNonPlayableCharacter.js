@@ -23,15 +23,39 @@ function newNonPlayableCharacter(x, y) {
 
     setInterval(moveCharacter, 1)
 
-    function walkEast() {
+    async function walking () {
+        walkEast ()
+    }
+    
+    async function walkEast() {
         direction = 'east'
         element.src = `./assets/red-character/east.gif`
-    }
+        await sleep (1400)
+        walkNorth()
+        await sleep (1200)
+        direction = 'east'
+        element.src = `./assets/red-character/east.gif`
+        await sleep (300)
+        walkSouth()
+        await sleep (1500)
+        direction = 'east'
+        element.src = `./assets/red-character/east.gif`
+        await sleep (1500)
+        walkSouth()
+        await sleep (500)
+        walkWest()
+        await sleep (3200)
+        walkNorth()
+        await sleep (800)
+        walkEast()
 
-    function walkNorth() {
+    }
+    
+    async function walkNorth() {
         direction = 'north'
         element.src = `./assets/red-character/north.gif`
     }
+    
 
     function walkWest() {
         direction = 'west'
@@ -56,4 +80,14 @@ function newNonPlayableCharacter(x, y) {
         walkSouth: walkSouth,
         stop: stop
     }
+}
+
+function sleep(time){
+    return new Promise(resolve => {
+        setTimeout(resolve, time)
+    })  
+} 
+
+async function walking () {
+    await sleep (1400), walkNorth ()
 }
